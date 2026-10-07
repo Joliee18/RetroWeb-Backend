@@ -1,9 +1,9 @@
-  name: Deploy RetroWeb
+name: Deploy RetroWeb
 
 on:
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '9.0.x'
+          dotnet-version: '8.0.x'
 
       - name: Restore dependencies
         run: dotnet restore RetroWeb/RetroWeb.csproj
@@ -31,7 +31,7 @@ jobs:
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: <NOMBRE_DE_TU_WEBAPP>
+          app-name: NOMBRE_REAL_DE_TU_WEBAPP
           slot-name: Production
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: ./publish
