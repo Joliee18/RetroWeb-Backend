@@ -1,4 +1,4 @@
-  name: Deploy RetroWeb
+name: Deploy RetroWeb
 
 on:
   push:
